@@ -1,0 +1,381 @@
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Bảng Giá Mod Free Fire & Free Fire Max</title>
+    <style>
+        * {
+            box-sizing: border-box;
+            margin: 0;
+            padding: 0;
+            font-family: 'Segoe UI', Roboto, Helvetica, Arial, sans-serif;
+        }
+
+        body {
+            background-color: #0b0f19;
+            color: #f1f5f9;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            min-height: 100vh;
+            padding: 40px 15px;
+        }
+
+        .header {
+            text-align: center;
+            margin-bottom: 35px;
+            max-width: 700px;
+        }
+
+        .platform-tags {
+            display: flex;
+            gap: 10px;
+            justify-content: center;
+            margin-bottom: 15px;
+            flex-wrap: wrap;
+        }
+
+        .tag {
+            background: rgba(234, 179, 8, 0.15);
+            color: #facc15;
+            border: 1px solid rgba(234, 179, 8, 0.4);
+            padding: 4px 14px;
+            border-radius: 20px;
+            font-size: 0.85rem;
+            font-weight: 700;
+            letter-spacing: 0.5px;
+        }
+
+        .header h1 {
+            font-size: 2.2rem;
+            background: linear-gradient(135deg, #facc15, #f97316);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            margin-bottom: 8px;
+            text-transform: uppercase;
+            font-weight: 900;
+        }
+
+        .header p {
+            color: #94a3b8;
+            font-size: 0.95rem;
+        }
+
+        .pricing-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+            gap: 20px;
+            width: 100%;
+            max-width: 1100px;
+        }
+
+        .category-card {
+            background: #161e2e;
+            border: 1px solid #243044;
+            border-radius: 14px;
+            padding: 22px;
+            display: flex;
+            flex-direction: column;
+            transition: transform 0.25s ease, border-color 0.25s ease;
+        }
+
+        .category-card:hover {
+            transform: translateY(-4px);
+            border-color: #facc15;
+        }
+
+        .category-card.featured {
+            border: 1px solid #facc15;
+            box-shadow: 0 0 20px rgba(250, 204, 21, 0.12);
+        }
+
+        .card-header {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            margin-bottom: 18px;
+            padding-bottom: 12px;
+            border-bottom: 1px solid #243044;
+        }
+
+        .card-icon {
+            font-size: 1.5rem;
+        }
+
+        .card-title {
+            font-size: 1.2rem;
+            font-weight: 700;
+            color: #f8fafc;
+        }
+
+        .price-list {
+            list-style: none;
+            display: flex;
+            flex-direction: column;
+            gap: 12px;
+            flex-grow: 1;
+        }
+
+        .price-item {
+            display: flex;
+            justify-content: space-between;
+            align-items: flex-start;
+            gap: 10px;
+            font-size: 0.92rem;
+        }
+
+        .item-name {
+            color: #cbd5e1;
+            line-height: 1.4;
+        }
+
+        .item-note {
+            display: block;
+            font-size: 0.8rem;
+            color: #f59e0b;
+            margin-top: 2px;
+        }
+
+        .item-price {
+            font-weight: 700;
+            color: #facc15;
+            white-space: nowrap;
+            background: rgba(250, 204, 21, 0.1);
+            padding: 2px 8px;
+            border-radius: 6px;
+        }
+
+        /* Phần Liên Hệ & Quét Mã QR */
+        .contact-section {
+            margin-top: 40px;
+            width: 100%;
+            max-width: 500px;
+            background: #161e2e;
+            border: 2px solid #0068ff;
+            border-radius: 16px;
+            padding: 25px;
+            text-align: center;
+            box-shadow: 0 10px 25px rgba(0, 104, 255, 0.15);
+        }
+
+        .contact-title {
+            font-size: 1.3rem;
+            font-weight: 700;
+            color: #38bdf8;
+            margin-bottom: 8px;
+        }
+
+        .contact-desc {
+            font-size: 0.9rem;
+            color: #94a3b8;
+            margin-bottom: 20px;
+        }
+
+        .qr-container {
+            background: #ffffff;
+            padding: 12px;
+            border-radius: 12px;
+            display: inline-block;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+        }
+
+        .qr-code {
+            width: 200px;
+            height: 200px;
+            display: block;
+            object-fit: contain;
+        }
+
+        .zalo-badge {
+            display: inline-flex;
+            align-items: center;
+            gap: 8px;
+            background: #0068ff;
+            color: #ffffff;
+            font-weight: 700;
+            padding: 8px 18px;
+            border-radius: 20px;
+            font-size: 0.95rem;
+        }
+
+        .footer-note {
+            margin-top: 35px;
+            text-align: center;
+            color: #64748b;
+            font-size: 0.85rem;
+        }
+
+        @media (max-width: 600px) {
+            .header h1 {
+                font-size: 1.7rem;
+            }
+            body {
+                padding: 25px 12px;
+            }
+            .qr-code {
+                width: 170px;
+                height: 170px;
+            }
+        }
+    </style>
+</head>
+<body>
+
+    <div class="header">
+        <div class="platform-tags">
+            <span class="tag">ANDROID</span>
+            <span class="tag">IOS</span>
+            <span class="tag">FF THƯỜNG</span>
+            <span class="tag">FF MAX</span>
+        </div>
+        <h1>Bảng Giá Dịch Vụ Mod Game</h1>
+        <p>Cam kết chất lượng - Hỗ trợ nhiệt tình</p>
+    </div>
+
+    <div class="pricing-grid">
+
+        <!-- Súng & Nắm Đấm -->
+        <div class="category-card">
+            <div class="card-header">
+                <span class="card-icon">🔫</span>
+                <h2 class="card-title">Súng & Nắm Đấm</h2>
+            </div>
+            <ul class="price-list">
+                <li class="price-item">
+                    <span class="item-name">Súng Hiệu Ứng / Không Hiệu Ứng</span>
+                    <span class="item-price">20.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Súng Nâng Cấp (Mọi Cấp Độ)</span>
+                    <span class="item-price">40.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Mod Nắm Đấm Lẻ (VD: Hỏa ➔ Long)</span>
+                    <span class="item-price">30.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Hiệu Ứng Đấm + Âm Thanh</span>
+                    <span class="item-price">50.000đ</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Trang Phục & Tùy Chỉnh -->
+        <div class="category-card">
+            <div class="card-header">
+                <span class="card-icon">👕</span>
+                <h2 class="card-title">Trang Phục & Tùy Chỉnh</h2>
+            </div>
+            <ul class="price-list">
+                <li class="price-item">
+                    <span class="item-name">Tóc / Giày</span>
+                    <span class="item-price">10.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <div class="item-name">
+                        Áo / Quần
+                        <span class="item-note">Mua áo/quần 15k giảm Icon còn 5k</span>
+                    </div>
+                    <span class="item-price">15.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">1 Set Đồ Hoàn Chỉnh</span>
+                    <span class="item-price">50.000đ</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Đổi Màu Áo</span>
+                    <span class="item-price">10.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Ghép Ảnh Lên Áo</span>
+                    <span class="item-price">20.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Ghi Tên Lên Áo</span>
+                    <span class="item-price">10.000đ / món</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Hành Động -->
+        <div class="category-card">
+            <div class="card-header">
+                <span class="card-icon">🏃</span>
+                <h2 class="card-title">Hành Động</h2>
+            </div>
+            <ul class="price-list">
+                <li class="price-item">
+                    <span class="item-name">Hành Động Level 7 (Theo Yêu Cầu)</span>
+                    <span class="item-price">20.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Combo 4 Hành Động</span>
+                    <span class="item-price">70.000đ</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Hành Động Gia Nhập</span>
+                    <span class="item-price">20.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Hành Động Gia Nhập Có Âm Thanh</span>
+                    <span class="item-price">30.000đ</span>
+                </li>
+            </ul>
+        </div>
+
+        <!-- Hồ Sơ & Khuyến Mãi -->
+        <div class="category-card featured">
+            <div class="card-header">
+                <span class="card-icon">✨</span>
+                <h2 class="card-title">Hồ Sơ & Khuyến Mãi</h2>
+            </div>
+            <ul class="price-list">
+                <li class="price-item">
+                    <span class="item-name">Mod Avatar Trong Game</span>
+                    <span class="item-price">5.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Mod Avatar Chế (Ảnh Tùy Chọn)</span>
+                    <span class="item-price">10.000đ / món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Mod Icon</span>
+                    <span class="item-price">20.000đ / 2 món</span>
+                </li>
+                <li class="price-item">
+                    <span class="item-name">Mod Tên</span>
+                    <span class="item-price">10.000đ / 1 mod</span>
+                </li>
+                <li class="price-item">
+                    <div class="item-name">
+                        Combo Hot
+                        <span class="item-note">Bao gồm 2 Tên + 2 Icon</span>
+                    </div>
+                    <span class="item-price">20.000đ</span>
+                </li>
+            </ul>
+        </div>
+
+    </div>
+
+    <!-- Khung Mua Hàng Qua Zalo QR -->
+    <div class="contact-section">
+        <h2 class="contact-title">MUA HÀNG / LIÊN HỆ ĐẶT MOD</h2>
+        <p class="contact-desc">Quét mã QR bên dưới bằng ứng dụng Zalo để nhắn tin trực tiếp</p>
+        <div class="qr-container">
+            <!-- Đặt tên file ảnh QR tải lên GitHub là qr-zalo.png -->
+            <img src="qr-zalo.png" alt="Mã QR Zalo Liên Hệ Mua Mod" class="qr-code">
+        </div>
+        <div>
+            <span class="zalo-badge">💬 Quét Mã Để Nhắn Zalo</span>
+        </div>
+    </div>
+
+    <div class="footer-note">
+        <p>Hỗ trợ đầy đủ thiết bị Android & iOS • Bản Free Fire Thường & FF MAX</p>
+    </div>
+
+</body>
+</html>
